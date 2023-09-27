@@ -137,3 +137,36 @@ export const setImageSource = (item: Item) => {
   }
   return source;
 };
+
+const getRandomCharacter = (characters: string | any[]) => {
+  const randomIndex = getRandomNumber(characters.length);
+  return characters[randomIndex];
+};
+
+const getRandomNumber = (max: number) => {
+  return Math.floor(Math.random() * max);
+};
+
+export const generatePassword = (length: number) => {
+  const numbers = '0123456789';
+  const specialChars = '!@#$%^&*()_-+=';
+  const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  let password = '';
+  password += getRandomCharacter(numbers);
+  password += getRandomCharacter(specialChars);
+  password += getRandomCharacter(uppercaseLetters);
+
+  for (let i = 0; i < length - 3; i++) {
+    const category = getRandomNumber(3);
+    if (category === 0) {
+      password += getRandomCharacter(numbers);
+    } else if (category === 1) {
+      password += getRandomCharacter(specialChars);
+    } else {
+      password += getRandomCharacter(uppercaseLetters);
+    }
+  }
+
+  return password;
+};
