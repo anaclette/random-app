@@ -1,5 +1,5 @@
-// import colors from '@/utils/themes/colors';
 import colors from '@/utils/themes/colors';
+import {MoreInfoButton} from '@/components';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
@@ -7,6 +7,7 @@ export const Animal = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Animal</Text>
+      <MoreInfoButton item={'Animal'} />
     </View>
   );
 };
